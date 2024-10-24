@@ -6,7 +6,7 @@ import  validateToken  from '../middleware/validateToken.js';
 
 router.use(validateToken);
 router.route("/").get(getMedicine);
-router.route("/").post(createMedicine);
+router.route("/create").post(createMedicine);
 router.route("/:id").put(updateMedicine);
 router.route("/:id").delete(deleteMedicine);
 

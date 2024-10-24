@@ -106,6 +106,16 @@ export const getCurrentUser = async (req, res) => {
     }
 };
 
+export const getAllElders = async (req, res) => {
+    try {
+        const elders = await User.find({ role: 'elder' }).select('-password');
+        res.status(200).json(elders);
+    } catch (error) {
+        console.error("Get all elders error:", error);
+        res.status(500).json({ message: 'Server error while fetching elders' });
+    }
+};
+
 // Create User with Role (Admin only)
 export const createUserWithRole = async (req, res) => {
 
